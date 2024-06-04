@@ -51,3 +51,113 @@
 # minimum(0,nums,n,nums[0])
 # print(mini(0,nums))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def ctop(i,str,count):
+#     if i==len(str):
+#         print(count)
+#         return
+#     vowels="aeiou"
+#     if str[i] in vowels:
+#         count+=1
+#     ctop(i+1,str,count)
+#
+#
+# str="abcdeefuigh"
+# ctop(0,str,0)
+
+# def c(str1,i,n):
+#     if i==n:
+#         return 0
+#     nextVowelsCount=c(str1,i+1,n)
+#     vowels="aeiou"
+#     if str1[i] in vowels:
+#         nextVowelsCount+=1
+#     return nextVowelsCount
+#
+#
+# str1="abcdeefuigh"
+# result=c(str1,0,len(str1))
+# print(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # passing from parent to child
+# def f(i,str,vowel,consonant):
+#     v="aeiou"
+#     if i==len(str):
+#         print(vowel)
+#         print(consonant)
+#         return
+#     if str[i] in v:
+#         vowel+=str[i]
+#     else:
+#         consonant+=str[i]
+#     f(i+1,str,vowel, consonant)
+# # passing from child to parent
+def f1(i,str):
+    vowel=""
+    consonant=""
+    v="aeiou"
+    if i==len(str):
+        return 0
+    # print(str[i])
+    t=f1(i+1,str)
+    if str[i] in v:
+        t +=str[i]
+        return t
+    else:
+        consonant+=str[i]
+        return consonant
+    # if i==0:
+    #     print(vowel)
+    #     print(consonant)
+
+# # def findVowels(index, word, vowel):
+# #     vowel="aeiou"
+# #     if index == len(word):
+# #         return 0
+# #     t = findVowels(index + 1, word, vowel)
+# #     if word[index] in vowel:
+# #         t += 1
+# #     return t
+#
+#
+#
+#
+str="raghu"
+# f(0,str,"","")
+f1(0,str)
+# # str="raghu"
+# # v="aeiou"
+# # for i in str:
+# #     if i in v:
+# #         print(i)
+
