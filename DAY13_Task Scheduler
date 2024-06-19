@@ -1,0 +1,31 @@
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        store=dict()
+        for task in tasks:
+            if task in store:
+                store[task]+=1
+            else:
+                store[task]=1
+        maxheap=[]
+        heapify(maxheap)
+        for task in store.keys():
+            heappush(maxheap,[-1*store[task] , task])
+        blockedtasks=[]
+        timer=0
+        while maxheap or blockedtasks:
+            if maxheap:
+                curr=heappop(maxheap)
+                curr[0]=-1*curr[0]
+                curr[0]-=1
+                if curr[0]>0:
+                    blockedtasks.append([-1*curr[0],curr[1],timer+n])
+            if blockedtasks and blockedtasks[0][2]==timer:
+                heappush(maxheap,[blockedtasks[0][0],blockedtasks[0][1]])
+                blockedtasks.pop(0)
+            timer+=1
+        return timer
+
+
+        
+
+        
